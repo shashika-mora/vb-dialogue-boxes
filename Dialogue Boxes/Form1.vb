@@ -8,8 +8,7 @@
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         On Error Resume Next
-        ofd.ShowDialog()
-        If ofd.FileName = "" Then
+        If ofd.ShowDialog() <> DialogResult.OK Then
             Exit Sub
         End If
         ' this part loads the file
@@ -37,8 +36,7 @@
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         On Error Resume Next
-        sfd.ShowDialog()
-        If sfd.FileName = "" Then
+        If sfd.ShowDialog() <> DialogResult.OK Then
             Exit Sub
         End If
         FileSystem.FileOpen(1, sfd.FileName, OpenMode.Output)
